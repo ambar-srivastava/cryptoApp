@@ -19,6 +19,7 @@ import {
   NumberOutlined,
   ThunderboltOutlined,
 } from "@ant-design/icons";
+import Loader from "./Loader";
 
 const { Title, Text } = Typography;
 const { Option } = Select;
@@ -34,7 +35,7 @@ const CryptoDetails = () => {
 
   const cryptoDetails = data?.data?.coin;
 
-  if (isFetching) return "Loading...";
+  if (isFetching) return <Loader />;
 
   const time = ["3h", "24h", "7d", "30d", "1y", "3m", "3y", "5y"];
 
@@ -121,7 +122,6 @@ const CryptoDetails = () => {
         currentPrice={millify(cryptoDetails?.price)}
         coinName={cryptoDetails?.name}
       />
-      {console.log(coinHistory)}
       <Col className="stats-container">
         <Col className="coin-value-statistics">
           <Col className="coin-value-statistics-heading">
